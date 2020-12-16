@@ -53,6 +53,7 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
     import pandas as pd
     import os
     import matplotlib.pyplot as plt
+    from matplotlib.figure import Figure
     import matplotlib.patches as patches
 
     tm_data = pd.read_csv(os.path.join('uploads', filename))
@@ -156,7 +157,9 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
         Probs_Dict['Probs_9'].append(round(prob9*100, 2))
 
     #  Fourth step
-    fig, ax = plt.subplots(2, 5, figsize=(16, 8))
+    fig = Figure([16, 8])
+    ax = fig.subplots(2, 5)
+    # fig, ax = plt.subplots(2, 5, figsize=(16, 8))
     if goal == 'Location':
         for p_list in ax:
             for p in p_list:
@@ -215,7 +218,7 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
     import io
     import base64
     save_file = io.BytesIO()
-    plt.savefig(save_file, format='png')
+    fig.savefig(save_file, format='png')
     figdata_png = base64.b64encode(save_file.getvalue()).decode('utf8')
 
     return figdata_png
