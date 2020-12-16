@@ -212,11 +212,10 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
                 elif n == 4:
                     ax[m, n].set_title("Strikes Percentage (%)")
 
-    from io import StringIO
-    figfile = StringIO()
-    plt.savefig(figfile, format='png')
-    figfile.seek(0)
+    import io
     import base64
-    figdata_png = base64.b64encode(figfile.buf)
+    save_file = io.BytesIO()
+    plt.savefig(save_file, format='png')
+    figdata_png = base64.b64encode(save_file.getvalue()).decode('utf8')
 
     return figdata_png

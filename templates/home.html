@@ -1,5 +1,5 @@
 
-<form method=post action='/'>
+<form method=post action="/" enctype=multipart/form-data>
 
     <table>
       {% for field in form %}
@@ -23,6 +23,6 @@
 
     {% if result != None %}
     <p>
-    <img src="data:image/png;base64,{{ result }}" width="500">
+    <img src="data:image/png;base64,{{ result }}">
     </p>
     {% endif %}

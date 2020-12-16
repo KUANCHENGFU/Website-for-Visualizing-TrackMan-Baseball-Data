@@ -34,7 +34,6 @@ def home():
     form = InputForm(request.form)
     filename = None
     if request.method == 'POST':
-
         if request.files:
             file = request.files[form.FileName.name]
 
