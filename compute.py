@@ -64,7 +64,7 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
     else:
         df_raw_1 = tm_data.loc[tm_data['BatterSide'] == batterside]
 
-    if batterside == 'Total':
+    if pitcherthrows == 'Total':
         df_raw_2 = df_raw_1
     else:
         df_raw_2 = df_raw_1.loc[df_raw_1['PitcherThrows'] == pitcherthrows]
