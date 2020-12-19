@@ -1,28 +1,30 @@
+{% extends "layout.html" %}
 
-<form method=post action="/" enctype=multipart/form-data>
-
+{% block content %}
+  <form method=post action="/" enctype=multipart/form-data>
     <table>
       {% for field in form %}
         <tr>
-
-        <td>{{ field.label }}</td>
-        <td>{{ field }}</td>
-        
-        {% if field.errors %}
-          <td><ul class=errors>
-          {% for error in field.errors %}
-            <li><font color="red">{{ error }}</font></li>
-          {% endfor %}</ul></td>
-        {% endif %}
-
+          <td>{{ field.label }}</td>
+          <td>{{ field }}</td>
+          {% if field.errors %}
+            <td>
+              <ul class=errors>
+                {% for error in field.errors %}
+                  <li><font color="red">{{ error }}</font></li>
+                {% endfor %}
+              </ul>
+            </td>
+          {% endif %}
         </tr>
       {% endfor %}
     </table>
+    <input type="submit" value="Submit">
+  </form>
 
-    <p><input type="submit" value="Submit"></form></p>
-
-    {% if result != None %}
+  {% if result != None %}
     <p>
-    <img src="data:image/png;base64,{{ result }}">
+      <img src="data:image/png;base64,{{ result }}">
     </p>
-    {% endif %}
+  {% endif %}
+{% endblock %}
