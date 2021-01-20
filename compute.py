@@ -56,7 +56,7 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
     from matplotlib.figure import Figure
     import matplotlib.patches as patches
 
-    tm_data = pd.read_csv(os.path.join('uploads', filename))
+    tm_data = pd.read_csv(os.path.join('uploads', filename), encoding='unicode_escape', index_col=False)
 
     # First step
     if batterside == 'Total':
