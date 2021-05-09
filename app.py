@@ -6,7 +6,6 @@ from compute import heatmap
 from werkzeug.utils import secure_filename
 import os
 
-
 # ========== initialize ==========
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -55,7 +54,6 @@ def home():
         result = None
 
     return render_template('home.html', form=form, result=result)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

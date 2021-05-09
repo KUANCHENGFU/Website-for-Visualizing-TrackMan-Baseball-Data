@@ -222,3 +222,4 @@ def heatmap(filename, goal, pitchtype, pitcherthrows, batterside):
     figdata_png = base64.b64encode(save_file.getvalue()).decode('utf8')
 
     return figdata_png
+
